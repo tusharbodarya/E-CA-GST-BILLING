@@ -23,7 +23,7 @@
                     <div class="media">
                         <div class="media-body">
                             <p class="text-muted font-weight-medium">Sale Invoice</p>
-                            <h4 class="mb-0">0</h4>
+                            <h4 class="mb-0">{{$data['SalesInvoice']}}</h4>
                         </div>
 
                         <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
@@ -44,7 +44,7 @@
                     <div class="media">
                         <div class="media-body">
                             <p class="text-muted font-weight-medium">Purchase Invoice</p>
-                            <h4 class="mb-0">0</h4>
+                            <h4 class="mb-0">{{$data['PurchaseInvoice'] }}</h4>
                         </div>
 
                         <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
@@ -65,7 +65,7 @@
                     <div class="media">
                         <div class="media-body">
                             <p class="text-muted font-weight-medium">Sale Challan</p>
-                            <h4 class="mb-0">0</h4>
+                            <h4 class="mb-0">{{$data['SaleChallan']}}</h4>
                         </div>
 
                         <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
@@ -86,7 +86,7 @@
                     <div class="media">
                         <div class="media-body">
                             <p class="text-muted font-weight-medium">Purchase Challan</p>
-                            <h4 class="mb-0">0</h4>
+                            <h4 class="mb-0">{{$data['PurchaseChallan']}}</h4>
                         </div>
 
                         <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
@@ -109,7 +109,7 @@
                     <div class="media">
                         <div class="media-body">
                             <p class="text-muted font-weight-medium">Job Work Challan</p>
-                            <h4 class="mb-0">0</h4>
+                            <h4 class="mb-0">{{$data['JobWorkChallan']}}</h4>
                         </div>
 
                         <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
@@ -130,7 +130,7 @@
                     <div class="media">
                         <div class="media-body">
                             <p class="text-muted font-weight-medium">Bank Transaction</p>
-                            <h4 class="mb-0">0</h4>
+                            <h4 class="mb-0">{{$data['CashTransaction']}}</h4>
                         </div>
 
                         <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
@@ -172,7 +172,7 @@
                     <div class="media">
                         <div class="media-body">
                             <p class="text-muted font-weight-medium">Accounts</p>
-                            <h4 class="mb-0">0</h4>
+                            <h4 class="mb-0">{{$data['Accounts']}}</h4>
                         </div>
 
                         <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
@@ -192,7 +192,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Column with Data Labels</h4>
+                    <h4 class="card-title mb-4">Monthly Sale</h4>
 
                     <div id="column_chart_datalabel" class="apex-charts" dir="ltr"></div>
                 </div>
@@ -238,21 +238,21 @@
     <!-- apexcharts init -->
     <!-- <script src="{{ asset('assets/js/pages/apexcharts.init.js') }}"></script> -->
     <script>
-        options = {
+       options = {
     chart: { height: 350, type: "bar", toolbar: { show: !1 } },
     plotOptions: { bar: { dataLabels: { position: "top" } } },
     dataLabels: {
         enabled: !0,
         formatter: function (e) {
-            return e + "%";
+            return e + " ₹";
         },
         offsetY: -20,
         style: { fontSize: "12px", colors: ["#304758"] },
     },
     series: [
         {
-            name: "Inflation",
-            data: [2.5, 3.2, 5, 10.1, 4.2, 3.8, 3, 2.4, 4, 1.2, 3.5, 0.8],
+            name: "Sale",
+            data: ["{{$data['ts'][0]}}", "{{$data['ts'][1]}}", "{{$data['ts'][2]}}", "{{$data['ts'][3]}}", "{{$data['ts'][4]}}", "{{$data['ts'][5]}}", "{{$data['ts'][6]}}", "{{$data['ts'][7]}}", "{{$data['ts'][8]}}", "{{$data['ts'][9]}}", "{{$data['ts'][10]}}", "{{$data['ts'][11]}}"],
         },
     ],
     colors: ["#556ee6"],
@@ -308,12 +308,12 @@
         labels: {
             show: !1,
             formatter: function (e) {
-                return e + "%";
+                return e + " ₹";
             },
         },
     },
     title: {
-        text: "Monthly Inflation in Argentina, 2002",
+        text: "Monthly Sale",
         floating: !0,
         offsetY: 320,
         align: "center",

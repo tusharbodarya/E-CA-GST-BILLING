@@ -126,7 +126,7 @@ class SalesController extends Controller
         $saleInvoice->productarray = $productarray;
         $saleInvoice->totaltax = $request->totaltax;
         $saleInvoice->totaldiscount = $request->totaldiscount;
-        $saleInvoice->total = $request->total;
+        $saleInvoice->total = str_replace(',', '', $request->total);
         $save = $saleInvoice->save();
         if ($save) {
             return back()->with('success', 'Sale Invoice has been Successfuly added.');
