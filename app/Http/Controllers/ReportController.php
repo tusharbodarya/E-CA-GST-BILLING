@@ -15,7 +15,7 @@ class ReportController extends Controller
         ->where('accountsgroups.effecton', 'Trading Accounts')
         ->where('ac.is_deleted',1)
         ->where('accountsgroups.sequence', 'left')->get();
-        $debitac_groups = Accountsgroup::join('accounts as ac', 'accounts0000000000000groups.id', '=', 'ac.accountsgroup')
+        $debitac_groups = Accountsgroup::join('accounts as ac', 'accountsgroups.id', '=', 'ac.accountsgroup')
         ->select('accountsgroups.*', 'ac.name', 'ac.balance')
         ->whereRaw('exists( SELECT * FROM accounts WHERE accountsgroups.id = accounts.accountsgroup )')
         ->where('accountsgroups.effecton', 'Trading Accounts')
