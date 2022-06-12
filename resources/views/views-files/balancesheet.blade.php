@@ -42,7 +42,7 @@
                                             <tr>
 												<td>{{ $liabilityac_group->balance }}</td>
 												<td>{{ $liabilityac_group->name }}</td>
-												<td><a href="view-accountsreport.php?purchasetextype={{ $liabilityac_group->id }}" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> View</a></td>
+												{{-- <td><a href="view-accountsreport.php?purchasetextype={{ $liabilityac_group->id }}" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> View</a></td> --}}
 											</tr>
                                         @endforeach
                                     </tbody>
@@ -61,7 +61,7 @@
                                             <tr>
 												<td>{{ $assetac_group->balance }}</td>
 												<td>{{ $assetac_group->name }}</td>
-												<td><a href="view-accountsreport.php?purchasetextype={{ $assetac_group->id }}" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> View</a></td>
+												{{-- <td><a href="view-accountsreport.php?purchasetextype={{ $assetac_group->id }}" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> View</a></td> --}}
 											</tr>
                                         @endforeach
                                     </tbody>

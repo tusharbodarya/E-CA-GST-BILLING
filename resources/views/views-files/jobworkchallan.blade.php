@@ -60,7 +60,7 @@
 						<th style="border-right: 2px solid;width: 6%;">Discount</th>
 						<th style="border-right: 2px solid;width: 6%;">Taxable</th>
 						<th style="border-right: 2px solid;width: 5%;">GST</th>
-						<th style="border-right: 2px solid;border-bottom: 2px solid;width: 13%;" colspan="2">Tax Amount</th>						
+						<th style="border-right: 2px solid;border-bottom: 2px solid;width: 13%;" colspan="2">Tax Amount</th>
 						<th style="width: 10%;">Net</th>
 					</tr>
 					<tr style="text-align:center">
@@ -101,7 +101,7 @@
 							<td style="border-bottom: 2px solid;border-right: 2px solid;">{{ number_format(str_replace(',','',$p['texttaxa']) / 2,2) }}</td>
 							<td style="border-bottom: 2px solid;border-right: 2px solid;">{{ number_format(str_replace(',','',$p['texttaxa']) / 2,2) }}</td>
 							<td style="border-bottom: 2px solid;">{{  $p['ammount'] }}</td>
-							
+
 						</tr>
 						@endforeach
 				</tbody>
@@ -117,7 +117,12 @@
 			<p style="width: 10%;">{{ round(str_replace(',','',$jobworkchallan->total)) }}</p>
 		</div>
 		<div style="display: flex;">
-			<table style="width: 73%;border-top: 2px solid;">
+                <div style="width: 73%;border-top: 2px solid;">
+                    <p style="margin-bottom: 0rem;">Bank Name : {{ Auth::user()->bankname }}</p>
+                    <p style="margin-bottom: 0rem;">Bank A/C No. : {{ Auth::user()->acno }}</p>
+                    <p style="margin-bottom: 0rem;">RTGS/IFSC Code : {{ Auth::user()->ifsc }}</p>
+                </div>
+			{{-- <table style="width: 73%;border-top: 2px solid;">
 				<tr style="border-bottom: 1px solid;">
 					<th style="width: 4%;border-right: 1px solid;margin-bottom: 0rem;text-align: center;" height="40">Type</th>
 					<th style="width: 16%;border-right: 1px solid;margin-bottom: 0rem;text-align: center;" height="40">Niddle 1</th>
@@ -145,7 +150,7 @@
 					<td style="width: 16%;border-right: 1px solid;margin-bottom: 0rem;text-align: center;" height="40">{{ $jobworkchallan->lace_niddle5 }}</td>
 					<td style="width: 16%;margin-bottom: 0rem;text-align: center;" height="40">{{ $jobworkchallan->lace_niddle6 }}</td>
 				</tr>
-			</table>
+			</table> --}}
 			<div style="width: 27%;border-top: 2px solid;border-left: 2px solid;">
 				<div style="display: flex;background-color: #f2f2f2;height: 35px;padding-bottom: 30px;border-bottom: 1px solid;" >
 					<p style="text-align: left;width: 50%;">Grand Total : </p><p style="text-align:left;width: 50%;"><b>{{ round(str_replace(',','',$jobworkchallan->total)) }}</b></p>

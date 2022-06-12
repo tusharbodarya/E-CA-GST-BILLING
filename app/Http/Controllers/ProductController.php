@@ -181,7 +181,7 @@ class ProductController extends Controller
     }
     public function delete_productCatagories($id)
     {
-        $ProductCategories = ProductCategories::where('id', $id)->update(['deleted_at' => 0]);
+        $ProductCategories = ProductCategories::where('id', $id)->update(['is_deleted' => 0]);
         return redirect('/tbl-productCatagories')->with('success', 'Product Category has been Successfuly Deleted.');
     }
 }

@@ -45,7 +45,7 @@
                                 placeholder="Enter Category Name">
                             <span class="text-danger">@error('name'){{ $message }}@enderror</span>
                             </div>
-
+{{--
                             <div class="form-group">
                                 <label for="saree">Saree Niddle Set</label>
                             <div class="row">
@@ -74,8 +74,8 @@
                                     <input type="text" class="form-control" id="saree_niddle6" name="saree_niddle6" value="{{ $Categories->saree_niddle6 }}">
                                 </div>
                             </div>
-                            </div>
-                            <div class="form-group">
+                            </div> --}}
+                            {{-- <div class="form-group">
                                 <label for="lace">Lace Niddle Set</label>
                             <div class="row">
                                 <div class="col-sm-2">
@@ -103,7 +103,7 @@
                                     <input type="text" class="form-control" id="lace_niddle6" name="lace_niddle6" value="{{ $Categories->lace_niddle6 }}">
                                 </div>
                             </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <label for="Description">Description</label>

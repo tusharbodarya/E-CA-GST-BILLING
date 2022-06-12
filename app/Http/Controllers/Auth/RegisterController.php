@@ -71,6 +71,7 @@ class RegisterController extends Controller
             'bankname' => $data['bankname'],
             'acno' => $data['acno'],
             'ifsc' => $data['ifsc'],
+            'role' => 'customer',
             'password' => Hash::make($data['password']),
         ]);
     }

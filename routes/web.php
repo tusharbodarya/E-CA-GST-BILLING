@@ -11,8 +11,11 @@ use App\Http\Controllers\PurchaseReturnController;
 use App\Http\Controllers\ChallanController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +48,7 @@ Route::post('/forgot-password', function (Request $request) {
 // Route::post('/auth/add', [AuthController::class, 'add'])->name('auth.add');
 // Route::post('/auth/check', [AuthController::class, 'check'])->name('auth.check');
 // Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::group(['middleware'=>['AuthCheck']],function(){
@@ -55,7 +59,12 @@ Route::group(['middleware'=>['AuthCheck']],function(){
     Route::get('/welcome', function () {
         return view('welcome');
     });
-// Add-Files
+
+    // users
+    Route::resource('users', UserController::class);
+    Route::get('/employees', [UserController::class, 'employees'])->name('employees');
+
+    // Add-Files
     Route::post('/add-files/addacgroup', [AccountsController::class, 'addacgroup'])->name('add-files.addacgroup');
     Route::post('/add-files/addaccount', [AccountsController::class, 'addaccount'])->name('add-files.addaccount');
     Route::post('/add-files/fetchaccountsgroup', [AccountsController::class, 'fetchaccountsgroup'])->name('add-files.fetchaccountsgroup');
@@ -73,8 +82,8 @@ Route::group(['middleware'=>['AuthCheck']],function(){
     Route::post('/tbl-files/fetchacdetails', [AccountsController::class, 'fetchacdetails'])->name('tbl-files.fetchacdetails');
     Route::post('/tbl-files/fetchacgroupdetails', [AccountsController::class, 'fetchacgroupdetails'])->name('tbl-files.fetchacgroupdetails');
     Route::get('/tbl-productCatagories', [ProductController::class, 'tbl_fetchproductCatagories'])->name('tbl-files.tbl-productCatagories');
-//edit-file
 
+    //edit-file
     Route::get('/edit-account/{id}', [AccountsController::class, 'edit_accounts']);
     Route::post('/update_ac', [AccountsController::class, 'update_ac'])->name('update_ac');
     Route::get('/edit-accountgroup/{id}', [AccountsController::class, 'edit_accountsgroup']);
@@ -138,11 +147,11 @@ Route::group(['middleware'=>['AuthCheck']],function(){
     // Transactions
     Route::resource('transaction', TransactionController::class);
     Route::get('/add-banktransaction', [TransactionController::class, 'bank_create']);
-    // Route::post('/fetch-transactionac', [AccountsController::class, 'fetch_transactionac'])->name('fetch-transactionac');
-    // Route::post('/fetch-transactionacdetails', [AccountsController::class, 'fetch_transactionacdetails'])->name('fetch-transactionacdetails');
-    // Route::post('/store-transaction', [AccountsController::class, 'store_transaction'])->name('fetch-transaction');
-    // Route::get('/transaction', [AccountsController::class, 'index_transaction'])->name('transaction');
-    // Route::get('/transaction-view/{id}', [AccountsController::class, 'transaction_view'])->name('transaction-view');
+    Route::post('/fetch-transactionac', [AccountsController::class, 'fetch_transactionac'])->name('fetch-transactionac');
+    Route::post('/fetch-transactionacdetails', [AccountsController::class, 'fetch_transactionacdetails'])->name('fetch-transactionacdetails');
+    Route::post('/store-transaction', [AccountsController::class, 'store_transaction'])->name('fetch-transaction');
+    Route::get('/transaction', [AccountsController::class, 'index_transaction'])->name('transaction');
+    Route::get('/transaction-view/{id}', [AccountsController::class, 'transaction_view'])->name('transaction-view');
     Route::get('/accountstatement', [AccountsController::class, 'accountstatement'])->name('accountstatement');
 
     //Reports

@@ -42,7 +42,7 @@
                                             <tr>
 												<td>{{ abs($creditac_group->balance) }}</td>
 												<td>{{ $creditac_group->name }}</td>
-												<td><a href="view-accountsreport.php?purchasetextype={{ $creditac_group->id }}" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> View</a></td>
+												{{-- <td><a href="view-accountsreport.php?purchasetextype={{ $creditac_group->id }}" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> View</a></td> --}}
 											</tr>
                                         @endforeach
                                     </tbody>
@@ -61,7 +61,7 @@
                                             <tr>
 												<td>{{ abs($debitac_group->balance) }}</td>
 												<td>{{ $debitac_group->name }}</td>
-												<td><a href="view-accountsreport.php?purchasetextype={{ $creditac_group->id }}" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> View</a></td>
+												{{-- <td><a href="view-accountsreport.php?purchasetextype={{ $creditac_group->id }}" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> View</a></td> --}}
 											</tr>
                                         @endforeach
                                     </tbody>

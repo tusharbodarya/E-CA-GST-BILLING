@@ -23,7 +23,8 @@ class User extends Authenticatable
         'gstno',
         'bankname',
         'acno',
-        'ifsc'
+        'ifsc',
+        'role'
     ];
 
     /**
